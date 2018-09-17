@@ -1,6 +1,3 @@
-# Seed-IP-Update-script
+# BPL Utility Scripts
 
-**Make sure you have jQ installed before running this script**
-
-sudo apt install -y jq
-
+- [Seed IP Update Script](update-peers/)
