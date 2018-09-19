@@ -2,15 +2,15 @@
 
 ## Instructions
 
-Edit crontab by typing `crontab -e`. This will allow you to edit the crontab in your default / chosen edito.
+Edit crontab by typing `crontab -e`. This will allow you to edit the crontab in your default / chosen editor.
 
-Put the following line at the end of the file to execute the restart checker every 5 minutes
+Put the following line at the end of the file to execute the restart checker every 5 minutes: 
 
 ```bash
 */5 * * * * /usr/local/bin/bplAutoRestart.sh
 ```
 
-Be sure to add a linebreak at the end of this line.
+Be sure to add a linebreak at the end of this file.
 
 Replace the example path above with the real location of the backup script.
 
@@ -24,13 +24,13 @@ You may want to edit the `forever.json` file to point to the location where your
 
 Now, you can stop your bpl-node process. First verify what forever processes are running with `forever list`. Once you have checked what is running, you can stop all processes with `forever stopall`.
 
-Finally, you can run the bplnode process, using the parameters specified in the `forever.json` file, simply with this command
+Finally, you can run the bplnode process, using the parameters specified in the `forever.json` file, simply with this command:
 
 ```bash
 forever start /etc/forever.json
 ```
 
-The restart script will run every 5 minutes and check the blockheight of your node. It logs its activity to a log file, which by default is /var/log/bplAutoRestart.log
+The restart script will run every 5 minutes and check the blockheight of your node. It logs its activity to a log file, which by default is `/var/log/bplAutoRestart.log`.
 
 
 
