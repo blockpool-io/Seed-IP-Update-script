@@ -1,4 +1,4 @@
-# BPL Snapshot Script
+# BPL Automatic Restart Script
 
 ## Instructions
 
@@ -24,13 +24,10 @@ You may want to edit the `forever.json` file to point to the location where your
 
 Now, you can stop your bpl-node process. First verify what forever processes are running with `forever list`. Once you have checked what is running, you can stop all processes with `forever stopall`.
 
-Finally, you can run the bplnode process, using the parameters specified in the `forever.json` file, simply with this command:
+Finally, you can run the `bplnode` process, using the parameters specified in the `forever.json` file, simply with this command:
 
 ```bash
 forever start /etc/forever.json
 ```
 
 The restart script will run every 5 minutes and check the blockheight of your node. It logs its activity to a log file, which by default is `/var/log/bplAutoRestart.log`.
-
-
-
