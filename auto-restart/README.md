@@ -12,7 +12,7 @@ Put the following line at the end of the file to execute the restart checker eve
 
 Be sure to add a linebreak at the end of this file.
 
-Replace the example path above with the real location of the backup script.
+Replace the example path above with the real location of the restart script.
 
 Save the file and exit the editor. Do `crontab -l` to verify that the new line is now in your crontab.
 
