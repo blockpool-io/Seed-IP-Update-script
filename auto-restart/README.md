@@ -22,7 +22,7 @@ Now, save the forever.json file in your chosen location - for example, `/etc/for
 
 You may want to edit the `forever.json` file to point to the location where your `BPL-node` folder is. Verify that the rest of the parameters in `forever.json` match what you are expecting.
 
-Now, you can stop your bpl-node process. First verify what forever processes are running with `forever list`. Once you have checked what is running, you can stop all processes with `forever stopall`.
+Now, you can stop your BPL-node process. First find out the process uid with `forever list`. You can then stop the BPL-node process with `forever stop <uid>`, where `<uid>` is the respective process number. Alternatively you can stop all running forever processes by typing `forever stopall`.
 
 Finally, you can run the `bplnode` process, using the parameters specified in the `forever.json` file, simply with this command:
 
