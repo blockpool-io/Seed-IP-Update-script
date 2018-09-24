@@ -61,7 +61,7 @@ arraylength=${#nodes[@]}
 
 # Spawning curl netheight processes loop
 
-for n in {1..$arraylength..$arraylength}; do
+for n in {1..$arraylength}; do
     for (( i=1; i<${arraylength}+1; i++ )); do
         saddr=${!nodes[i-1]:0:1}
         echo $i $(curl -m 3 -s $saddr$apicall | cut -f 5 -d ":" | sed 's/,.*//' | sed 's/}$//') >> $HOME/tout.txt &
