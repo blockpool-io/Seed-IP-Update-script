@@ -11,7 +11,7 @@ wget https://raw.githubusercontent.com/blockpool-io/utility-scripts/master/auto-
 ### 2. Make it executable
 
 ```bash
-chmod +x ~/auto-restart.sh
+chmod +x auto-restart.sh
 ```
 
 ### 3. Execute the script manually
@@ -25,7 +25,7 @@ bash auto-restart.sh
 ### 4. Move the script
 
 ```bash
-sudo mv ~/auto-restart.sh /usr/local/bin/
+sudo mv auto-restart.sh /usr/local/bin/
 ```
 
 ### 5. Add cronjob
