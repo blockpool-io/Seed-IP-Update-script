@@ -5,7 +5,7 @@
 ### 1. Get the script
 
 ```bash
-wget https://raw.githubusercontent.com/blockpool-io/utility-scripts/master/auto-restart/auto-restart.sh -O ~/auto-restart.sh
+wget https://raw.githubusercontent.com/blockpool-io/utility-scripts/master/auto-restart/auto-restart.sh
 ```
 
 ### 2. Make it executable
@@ -19,7 +19,7 @@ chmod +x ~/auto-restart.sh
 > This steps correctly sets up all necessary paths for the script to function
 
 ```bash
-bash ~/auto-restart.sh
+bash auto-restart.sh
 ```
 
 ### 4. Move the script
