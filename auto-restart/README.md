@@ -43,7 +43,6 @@ Be sure to add a linebreak at the end of this file.
 ### 6. Start the node using the new forever config
 
 > If your node is running -> first find out the process uid with `forever list`. You can then stop the BPL-node process with `forever stop <uid>`, where `<uid>` is the respective process number. Alternatively you can stop all running forever processes by typing `forever stopall`.
->>>>>>> Stashed changes
 
 ```bash
 forever start ~/.forever/configs/bplnode.json
