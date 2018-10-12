@@ -6,8 +6,7 @@ PATH=$PATH
 
 DIRCOUNT=`locate -b -c "\BPL-node"`
 
-if [[ ! ${DIRCOUNT} -eq 1 ]];
-then
+if [[ ! ${DIRCOUNT} -eq 1 ]]; then
     echo "--> more than once BPL-node folder found - aborting"
     exit 1
 fi
@@ -23,8 +22,7 @@ SCRIPTFILE=$DIR/$BASH_SOURCE
 PORT=9030
 NET=mainnet
 
-if [[ ${INITIALISED} -eq 0 ]];
-then
+if [[ ${INITIALISED} -eq 0 ]]; then
     NODEBIN=$(which node)
     NODEPATH=${NODEBIN%/*}
     
@@ -40,24 +38,25 @@ then
 else
     STATUS=$(curl -s http://$(hostname):$PORT/api/loader/status/ping)
 
-    if [ $STATUS = '{"success":true}' ];
-    then
-        echo "$(date) UP"
+    if [ $STATUS = '{"success":true}' ]; then
+        echo "$(date) UP" >> $LOGFILE
     else
-        echo "$(date) DOWN"
+        echo "$(date) DOWN" >> $LOGFILE
         BLOCKHEIGHT=$(curl -s http://$(hostname):$PORT/api/blocks/getHeight | jq -r '.height')
         echo "--> Height: $BLOCKHEIGHT" 
-        if [ -f $BLOCKHEIGHTFILE ] ### check if we have stored block height before
-            then
+
+        ### check if we have stored block height before
+        if [ -f $BLOCKHEIGHTFILE ]; then
             OLDHEIGHT=$(cat $BLOCKHEIGHTFILE)
             echo "--> Prev height: $OLDHEIGHT" >> $LOGFILE
-            if [ $BLOCKHEIGHT -le $OLDHEIGHT ]; ### If blockheight has not increased
-            then
+
+            ### If blockheight has not increased
+            if [ $BLOCKHEIGHT -le $OLDHEIGHT ]; then
                 echo "--> Height has not increased over last period. Restarting." >> $LOGFILE
                 forever restart bplnode
                rm $BLOCKHEIGHTFILE ### reset stored old blockheight
             else
-                echo "--> Height is increasing. Recording new height" >>$LOGFILE
+                echo "--> Height is increasing. Recording new height" >> $LOGFILE
                 echo $BLOCKHEIGHT > $BLOCKHEIGHTFILE
             fi
         else
