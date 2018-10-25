@@ -38,7 +38,7 @@ if [[ ${INITIALISED} -eq 0 ]]; then
 else
     STATUS=$(curl -s http://$(hostname):$PORT/api/loader/status/ping)
 
-    if [ $STATUS = '{"success":true}' ]; then
+    if [[ "$STATUS" = '{"success":true}' ]]; then
         echo "$(date) UP" >> $LOGFILE
     else
         echo "$(date) DOWN" >> $LOGFILE
@@ -46,12 +46,12 @@ else
         echo "--> Height: $BLOCKHEIGHT" 
 
         ### check if we have stored block height before
-        if [ -f $BLOCKHEIGHTFILE ]; then
+        if [[ -f "$BLOCKHEIGHTFILE" ]]; then
             OLDHEIGHT=$(cat $BLOCKHEIGHTFILE)
             echo "--> Prev height: $OLDHEIGHT" >> $LOGFILE
 
             ### If blockheight has not increased
-            if [ $BLOCKHEIGHT -le $OLDHEIGHT ]; then
+            if [[ "$BLOCKHEIGHT" -le "$OLDHEIGHT" ]]; then
                 echo "--> Height has not increased over last period. Restarting." >> $LOGFILE
                 forever restart bplnode
                rm $BLOCKHEIGHTFILE ### reset stored old blockheight
